@@ -1,0 +1,133 @@
+
+body{
+    padding:0;
+    
+    display:block;
+}
+
+.hideme{
+    display:none;
+}
+
+
+
+#header{
+    /*height:70px;*/
+    text-align: center;
+}
+
+#LCol{
+   
+   height: 100%;
+   width: 13%;
+    float: left;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+#Lmenu, #LognBox, #RegBox{
+    padding-bottom: 20px;
+}
+
+#CCol{
+  /*  width: 800px;*/
+    float:left;
+   /* height: 100%;*/
+    
+    padding-left:180px;
+    padding-top: 1%;
+    
+}
+#footerText{
+    vertical-align: middle;
+    justify-content: center;
+}
+#usrBicon{
+    margin-left: 37%;
+}
+
+#footer{
+    
+    clear:both;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    
+    padding-top: 0%;
+   position: fixed;
+        bottom: 0;
+        width: 100%;
+      
+    /*
+    left: -382.5px;
+    /*
+    
+    */
+    
+    /*
+    width: 765px;
+    */
+    
+    
+}
+
+
+.menuCapt{
+    padding:3px;
+    font-weight: bold;
+}
+
+.basketBox{
+    padding: 5px 0px 5px 0px;
+}
+
+.showHidden{
+    text-decoration: underline;
+    color: red;
+    cursor: pointer;
+}
+
+#RegHidden{
+    display: none;
+}
+
+#pagesNav{
+      position: fixed;
+        bottom: 10%;
+        margin-left: 30%;
+}
+
+
+
+
+/*аниамция Нав Бара*/
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{  display:block; opacity: 0;  visibility: hidden; transition:.3s; margin-top:0;  }
+	.navbar .nav-item:hover .nav-link{ color: #fff;  }
+	.navbar .dropdown-menu.fade-down{ top:80%; transform: rotateX(-75deg); transform-origin: 0% 0%; }
+	.navbar .dropdown-menu.fade-up{ top:180%;  }
+	.navbar .nav-item:hover .dropdown-menu{ transition: .3s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); }
+        
+       
+}	
+
+
+        /*корочи это для профиля */
+        .nav-item .dropdown-menu{  display:block; opacity: 0;  visibility: hidden; transition:.3s; margin-top:0;}
+	.nav-item:hover .nav-link{ color: #fff;  }
+	.dropdown-menu.fade-down{ top:80%; transform: rotateX(-75deg); transform-origin: 0% 0%;  }
+        .dropdown-menu.fade-up{ top:180%;   }
+	.nav-item:hover .dropdown-menu{ transition: .3s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); }
+
+/*
+#usrB{
+     #usrB .nav-item .dropdown-menu{  display:block; opacity: 0;  visibility: hidden; transition:.15s; margin-top:0;  }
+	#usrB:hover .nav-link{ color: #fff;  }
+	#usrB .dropdown-menu.fade-down{ top:80%; transform: rotateX(-75deg); transform-origin: 0% 0%; }
+	#usrB .dropdown-menu.fade-up{ top:180%;  }
+	#usrB:hover .dropdown-menu{ transition: .8s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); }
+}
+*/
+
