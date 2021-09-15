@@ -1,0 +1,36 @@
+AddDefaultCharset utf-8
+#из-за этого файла иногда могут происходить непонятные вещи, так что лучше его при разработке отрубать
+#http://www.htaccesscheck.com/
+
+Options +FollowSymLinks
+Options -Indexes
+DirectoryIndex index.php
+
+RewriteEngine On
+RewriteBase /
+#для страницы корзины
+RewriteRule ^([a-z]+)/$ /?controller=$1&%{QUERY_STRING} [NS,L] 
+
+# для добавления в корзину 
+# Преобразует запрос и попадаем в addtobasketAction
+RewriteRule ^([a-z]+)/([a-z]+)/([0-9]+)/$ /?controller=$1&action=$2&id=$3&%{QUERY_STRING} [NS,L] 
+RewriteRule ^([a-z]+)/([a-z]+)/$ /?controller=$1&action=$2&%{QUERY_STRING} [NS,L] 
+
+#определяет вид URL и преобразует в заданных вид, в общем убирает ?controller=cat&id=1  и преобразует в /cat/1/
+RewriteRule ^([a-z]+)/([0-9]+)/$ /?controller=$1&id=$2&%{QUERY_STRING} [NS,L] 
+#или считывает обычный текст и преобразует в вид /?controller=$1&id=$2&%{QUERY_STRING} чтобы можно было открыть страницу
+
+
+#для Пагинации (controller ловит, номер страницы приходиться вручную)
+RewriteRule ^([a-z]+)/([0-9]+)/$ /?controller=$1&pagenum=$2&%{QUERY_STRING} [NS,L] 
+
+ #RewriteRule ^([a-z]+)/([a-z]+)/$ /?controller=$1&action=$2&%{QUERY_STRING} [NS,L]
+ #RewriteRule ^([a-z]+)/([0-9]+)/$ /?controller=$1&id=$2&%{QUERY_STRING} [NS,L]
+ #RewriteRule ^([a-z]+)/$ /?controller=$1&%{QUERY_STRING} [NS,L]
+
+RewriteCond $1 !^{index\.php}
+RewriteCond %{REQUEST_URI} !\.(css|js|jpg|gif)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
